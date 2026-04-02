@@ -26,29 +26,29 @@
       width: 90%;
       max-width: 500px;
       margin: 20px auto;
+      aspect-ratio: 1 / 1;
     }
 
     .fond {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      object-fit: contain;
+      z-index: 1;
     }
 
     .disque {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 65%;
-  transform: translate(-50%, -50%);
-  animation: rotation 8s linear infinite;
-  transform-origin: center center;
-  z-index: 2; /* disque au dessus */
-}
-
-.fond {
-  position: relative;
-  z-index: 1; /* fond en dessous */
-}
+      position: absolute;
+      top: 49.5%;
+      left: 49.5%;
+      width: 67%;
+      transform: translate(-50%, -50%);
+      transform-origin: center center;
+      animation: rotation 8s linear infinite;
+      z-index: 2;
+      pointer-events: none;
+    }
 
     iframe {
       width: 90%;
@@ -56,8 +56,7 @@
       height: 300px;
       margin: 20px auto;
       display: block;
-      position: relative;
-      z-index: 3;
+      border: 0;
     }
 
     @keyframes rotation {
@@ -74,14 +73,13 @@
   <h1>Un Souffle Juste Pour Toi</h1>
 
   <div class="lecteur">
-  <img src="fond.png" class="fond" />
-  <img src="disque.png" class="disque" />
-</div>
-  
-  <!-- 🔁 Remplace le lien ci-dessous par celui de ta chanson YouTube (format https://www.youtube.com/embed/XXXXXXXXXXX) -->
-  <iframe src="https://www.youtube.com/embed/U3_djdjsl5Q"
+    <img src="fond.png" class="fond" alt="Fond tourne-disque" />
+    <img src="disque.png" class="disque" alt="Disque" />
+  </div>
+
+  <iframe
+    src="https://www.youtube.com/embed/U3_djdjsI5Q"
     title="je t'accuse"
-    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
   </iframe>
