@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Un Souffle Juste Pour Toi</title>
+
   <style>
     body {
       background-color: #111;
@@ -21,29 +22,50 @@
       color: #cc66ff;
     }
 
+    /* CONTENEUR TOURNE-DISQUE */
     .lecteur {
       position: relative;
       width: 90%;
       max-width: 500px;
-      margin: 20px auto;
+      margin: 30px auto;
     }
 
+    /* IMAGE DE BASE */
     .fond {
       width: 100%;
       display: block;
-      position: relative;
+    }
+
+    /* DISQUE */
+    .disque {
+      position: absolute;
+      top: 22%;      /* ajuste si besoin */
+      left: 50%;
+      width: 58%;    /* ajuste selon ton image */
+      transform: translateX(-50%);
+      transform-origin: center center;
+      animation: rotation 6s linear infinite;
       z-index: 2;
     }
 
-    .disque {
+    /* BRAS AU-DESSUS */
+    .bras {
       position: absolute;
-      top: 47%;
-      left: 45.8%;
-      width: 56%;
-      z-index: 1;
-      transform-origin: center center;
-      animation: rotationDisque 6s linear infinite;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 3;
       pointer-events: none;
+    }
+
+    /* ANIMATION */
+    @keyframes rotation {
+      from {
+        transform: translateX(-50%) rotate(0deg);
+      }
+      to {
+        transform: translateX(-50%) rotate(360deg);
+      }
     }
 
     iframe {
@@ -52,32 +74,27 @@
       height: 300px;
       margin: 20px auto;
       display: block;
-      border: 0;
-    }
-
-    @keyframes rotationDisque {
-      from {
-        transform: translate(-50%, -50%) rotate(-16deg) skewX(-8deg) scaleY(0.84) rotate(0deg);
-      }
-      to {
-        transform: translate(-50%, -50%) rotate(-16deg) skewX(-8deg) scaleY(0.84) rotate(360deg);
-      }
     }
   </style>
 </head>
+
 <body>
+
   <h1>Un Souffle Juste Pour Toi</h1>
 
   <div class="lecteur">
-    <img src="fond.png" class="fond" alt="Fond tourne-disque" />
-    <img src="disque.png" class="disque" alt="Disque" />
+    <img src="fond_bas.png" class="fond" />
+    <img src="disque.png" class="disque" />
+    <img src="bras.png" class="bras" />
   </div>
 
-  <iframe
-    src="https://www.youtube.com/embed/U3_djdjsI5Q"
-    title="je t'accuse"
+  <!-- 🎵 MET TON LIEN YOUTUBE ICI -->
+  <iframe src="https://www.youtube.com/embed/U3_djdjsI5Q"
+    title="Je t'accuse"
+    frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
   </iframe>
+
 </body>
 </html>
